@@ -43,7 +43,7 @@ class Saml2ServiceProvider extends ServiceProvider
             }
 
             if(!empty($config['sp']['assertionConsumerService']['url'])){
-                $config['sp']['assertionConsumerService']['url'] = URL::route('saml_acs');
+                $config['sp']['assertionConsumerService']['url'] = str_replace("http://","https://",URL::route('saml_acs'));
             }
 
             if(empty($config['sp']['singleLogoutService']['url'])){
